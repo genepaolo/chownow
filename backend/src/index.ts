@@ -3,8 +3,10 @@ import cors from "cors"
 import "dotenv/config"
 
 // MongoDB Config
-const mongoose = require('mongoose');
-const uri = "mongodb+srv://admin:<password>@chownow-cluster.lfp4u9r.mongodb.net/?retryWrites=true&w=majority&appName=chownow-cluster";
+import mongoose from "mongoose"
+mongoose
+.connect(process.env.MONGODB_CONNECTION_STRING as string)
+.then(() => console.log("Connected to MongoDB!"))
 
 
 const app = express()
